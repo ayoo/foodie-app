@@ -1,0 +1,31 @@
+<h1>{{recipe.title}}</h1>
+
+<p class="lead">
+    by <a href="#">{{current_user.first_name}} {{current_user.last_name}}</a>
+</p>
+<div class="text-right">
+    <a ng-href="#/recipes/{{recipe.id}}/edit" class="btn btn-lg btn-success" ng-if="current_user.id === recipe.user_id">Edit Recipe</a>
+    <a ng-href="#/recipes/{{recipe.id}}/delete" class="btn btn-lg btn-danger" ng-if="current_user.id === recipe.user_id">Delete Recipe</a>
+</div>
+<hr>
+
+<!-- Date/Time -->
+<p><span class="glyphicon glyphicon-time"></span>
+    Posted on {{recipe.created_at |  date :  "dd/MM/yyyy h:mm a " }}</p>
+
+<hr>
+<h4>Cook time</h4>
+<p>{{recipe.cook_time}}</p>
+<hr>
+<h4>Ready time</h4>
+<p>{{recipe.ready_time}}</p>
+<hr>
+<h4>Ingredients</h4>
+<p>{{recipe.ingredients}}</p>
+<hr>
+<h4>Serves for</h4>
+<p>{{recipe.yield}}</p>
+<hr>
+<!-- Post Content -->
+<p class="lead">{{recipe.content}}
+<hr>

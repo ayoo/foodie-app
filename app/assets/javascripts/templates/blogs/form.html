@@ -1,0 +1,37 @@
+<h1>{{page_title}}</h1>
+<hr>
+
+<form name="form" novalidate>
+    <div class="form-group has-feedback" ng-class="{
+        'has-error': form.title.$invalid && (form.title.$dirty || form.title.$touched),
+        'has-success': form.title.$valid && form.title.$touched
+    }">
+        <label for="title" class="required">Title</label>
+        <input type="text" ng-model="blog.title" name="title" autofocus="autofocus" class="form-control" required/>
+        <p class="help-block" ng-messages="form.title.$error" ng-if="form.title.$touched">
+            <span ng-message="required">Title is required</span>
+        </p>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{
+        'has-error': form.content.$invalid && (form.content.$dirty || form.content.$touched),
+        'has-success': form.content.$valid && form.content.$touched
+    }">
+        <label for="content" class="required">Content</label>
+        <textarea ng-model="blog.content" name="content" autofocus="autofocus" class="form-control" rows="8" required />
+        <p class="help-block" ng-messages="form.content.$error" ng-if="form.content.$touched">
+            <span ng-message="required">Content is required</span>
+        </p>
+    </div>
+
+    <div class="form-group">
+        <label for="tags">Tags</label>
+        <input type="text" ng-model="blog.tags" name="tags" autofocus="autofocus" class="form-control"/>
+    </div>
+
+    <button ng-click="save()" class="btn btn-primary btn-lg">
+        {{btn_name}}
+    </button>
+    <a ng-click="cancel()" class="btn btn-lg btn-danger">Cancel</a>
+
+</form>

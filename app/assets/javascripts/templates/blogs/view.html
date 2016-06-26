@@ -1,0 +1,20 @@
+<h1>{{blog.title}}</h1>
+
+<p class="lead">
+    by <a href="#">{{current_user.first_name}} {{current_user.last_name}}</a>
+</p>
+<div class="text-right">
+    <a ng-href="#/blogs/{{blog.id}}/edit" class="btn btn-lg btn-success" ng-if="current_user.id === blog.user_id">Edit Blog</a>
+    <a ng-href="#/blogs/{{blog.id}}/delete" class="btn btn-lg btn-danger" ng-if="current_user.id === blog.user_id">Delete Blog</a>
+</div>
+<hr>
+
+<!-- Date/Time -->
+<p><span class="glyphicon glyphicon-time"></span>
+    Posted on {{blog.created_at |  date :  "dd/MM/yyyy h:mm a " }}</p>
+
+<hr>
+
+<!-- Post Content -->
+<p class="lead">{{blog.content}}
+<hr>

@@ -1,0 +1,17 @@
+<h1>My Reviews</h1>
+<hr>
+<div class="text-right">
+    <a ng-href="#/reviews/new" class="btn btn-lg btn-success">New Review</a>
+</div>
+
+<div class="media" ng-repeat="review in reviews">
+    <a class="pull-left" href="#">
+        <img class="media-object" src="http://placehold.it/64x64" alt="">
+    </a>
+    <div class="media-body linkable" ng-click="view(review.id)">
+        <h4 class="media-heading">{{review.title}}
+            <small>{{review.created_at | date :  "dd/MM/yyyy h:mm a " }}</small>
+        </h4>
+        {{review.content | limitTo: 100}}
+    </div>
+</div>

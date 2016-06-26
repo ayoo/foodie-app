@@ -1,0 +1,22 @@
+<h1>Recent Activities</h1>
+<hr>
+<p class="lead">
+    Showing only top 20
+</p>
+
+<div class="media activity-{{activity.id}}" ng-repeat="activity in activities" >
+    <a class="pull-left" href="#">
+        <img class="media-object" src="http://placehold.it/64x64" alt="">
+    </a>
+    <div class="media-body linkable" ng-click="view(activity)">
+        <h4 class="media-heading">{{activity.user.first_name}} has {{activity.action}} a {{activity.streamable_type | lowercase}}
+            <small>posted on {{activity.created_at  | date :  "dd/MM/yyyy h:mm a "}}</small>
+        </h4>
+        <span class="label" ng-class="{
+            'label-primary': activity.streamable_type == 'Blog',
+            'label-success': activity.streamable_type == 'Recipe',
+            'label-info': activity.streamable_type == 'Review',
+        }">{{activity.streamable_type}}</span>
+        {{activity.title}}
+    </div>
+</div>
