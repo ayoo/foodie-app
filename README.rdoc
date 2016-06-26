@@ -22,6 +22,8 @@ Todo
 
 * Fix bugs
 
+
+
 This app uses the bower to install third-party assets (bootstrap, angular and other js/css components_
 
 Bower Installation
@@ -29,8 +31,4 @@ Bower Installation
 * npm install -g bower
 
 * rake bower:install
-
-Run test
-
-* rspec .
 
