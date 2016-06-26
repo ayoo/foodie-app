@@ -2,7 +2,7 @@
 
 This is just the sample test application to demonstrate how to integrate with multiple stacks including AngularJS, Rails4 and Postgres
 
-The working demo can be found [here](https://foodie-app.herokuapp.com)
+The working demo can be found here - https://foodie-app.herokuapp.com
 
 Things which were covered by this version:
 
@@ -21,3 +21,16 @@ Todo
 * ActionCable to use WebSocket. This requires the upgrade to Rails 5 first
 
 * Fix bugs
+
+This app uses the bower to install third-party assets (bootstrap, angular and other js/css components_
+
+Bower Installation
+
+* npm install -g bower
+
+* rake bower:install
+
+Run test
+
+* rspec .
+
