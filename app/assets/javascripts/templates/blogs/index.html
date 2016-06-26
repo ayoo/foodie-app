@@ -4,6 +4,9 @@
     <a ng-href="#/blogs/new" class="btn btn-lg btn-success">New Blog</a>
 </div>
 
+<div ng-if="blogs.length === 0"><p>You have no blogs yet :)</p></div>
+
+</div>
 <div class="media" ng-repeat="blog in blogs">
     <a class="pull-left" href="#">
         <img class="media-object" src="http://placehold.it/64x64" alt="">

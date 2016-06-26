@@ -33,9 +33,12 @@
         'has-success': form.password_confirmation.$valid && form.password_confirmation.$touched
     }">
         <label for="password_confirmation" class="required">Password confirmation</label>
-        <input type="password" ng-model="user.password_confirmation" name="password_confirmation" autofocus="autofocus" class="form-control" required/>
+        <input type="password" ng-model="user.password_confirmation" name="password_confirmation" autofocus="autofocus" class="form-control"
+               required
+               match-password="password"/>
         <p class="help-block" ng-messages="form.password_confirmation.$error" ng-if="form.password_confirmation.$touched">
             <span ng-message="required">Password is required</span>
+            <span ng-message="passwordMatch" class="message slide-left">Your passwords did not match</span>
         </p>
     </div>
 
@@ -71,6 +74,6 @@
         {{btn_name}}
     </button>
     <a ng-click="cancel()" class="btn btn-lg btn-default">Cancel</a>
-    <a ng-href="#/admin/users/{{user.id}}/delete" class="btn btn-lg btn-danger pull-right">Delete Blog</a>
+    <a ng-href="#/admin/users/{{user.id}}/delete" class="btn btn-lg btn-danger pull-right">Delete User</a>
 
 </form>

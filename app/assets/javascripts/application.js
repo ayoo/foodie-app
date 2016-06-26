@@ -18,6 +18,7 @@
 //= require angular-messages
 //= require angular-rails-templates
 //= require angular-bootstrap
+//= require angular-password
 //= require foodies
 //= require_tree ./templates
 //= require_tree .

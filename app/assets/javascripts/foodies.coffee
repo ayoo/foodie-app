@@ -4,7 +4,8 @@ app = angular.module('foodies',
     'ngResource',
     'ngMessages',
     'ui.bootstrap',
-    'templates'
+    'templates',
+    'ngPassword'
   ]
 )
 

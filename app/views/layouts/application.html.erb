@@ -55,7 +55,7 @@
             <li>
               <a ng-href="#/reviews">Reviews</a>
             </li>
-            <li ng-if="current_user.is_admin">
+            <li ng-show="current_user.is_admin">
               <a ng-href="#/admin/users">Manage Users</a>
             </li>
           </ul>

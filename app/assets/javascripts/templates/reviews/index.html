@@ -4,6 +4,7 @@
     <a ng-href="#/reviews/new" class="btn btn-lg btn-success">New Review</a>
 </div>
 
+<div ng-if="reviews.length === 0"><p>You have no reviews yet :)</p></div>
 <div class="media" ng-repeat="review in reviews">
     <a class="pull-left" href="#">
         <img class="media-object" src="http://placehold.it/64x64" alt="">

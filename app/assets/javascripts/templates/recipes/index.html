@@ -4,6 +4,8 @@
     <a ng-href="#/recipes/new" class="btn btn-lg btn-success">New Recipe</a>
 </div>
 
+<div ng-if="recipes.length === 0"><p>You have no recipes yet :)</p></div>
+
 <div class="media" ng-repeat="recipe in recipes">
     <a class="pull-left" href="#">
         <img class="media-object" src="http://placehold.it/64x64" alt="">
