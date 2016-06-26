@@ -29,9 +29,9 @@
         <input type="text" ng-model="blog.tags" name="tags" autofocus="autofocus" class="form-control"/>
     </div>
 
-    <button ng-click="save()" class="btn btn-primary btn-lg">
+    <button ng-click="save()" class="btn btn-primary btn-lg" ng-disabled="form.$invalid">
         {{btn_name}}
     </button>
-    <a ng-click="cancel()" class="btn btn-lg btn-danger">Cancel</a>
+    <a ng-click="cancel()" class="btn btn-lg btn-default">Cancel</a>
 
 </form>

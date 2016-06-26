@@ -20,10 +20,10 @@ feature "Recent activities" do
 
   scenario "clicks on someone else's article in the activity list" do
     @user1 = create(:user)
-    @user1_activity = create(:blog, user: @user1)
+    @user2_activity = create(:blog, user: @user1)
     signup_then_login
-    find(".activity-#{@user1_activity.id} .linkable").click
-    expect(page).to have_content(@user1_activity.title)
+    find(".activity-#{@user2_activity.id} .linkable").click
+    expect(page).to have_content(@user2_activity.title)
     expect(page).not_to have_content('Edit Blog')
     expect(page).not_to have_content('Delete Blog')
   end

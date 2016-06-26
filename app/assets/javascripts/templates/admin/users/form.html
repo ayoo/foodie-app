@@ -1,0 +1,76 @@
+<h1>{{page_title}}</h1>
+<hr>
+
+<form name="form" novalidate>
+    <div class="form-group has-feedback" ng-class="{
+        'has-error': form.email.$invalid && (form.email.$dirty || form.email.$touched),
+        'has-success': form.email.$valid && form.email.$touched
+    }">
+        <label for="email" class="required">Email</label>
+        <input type="text" ng-model="user.email" name="email" autofocus="autofocus" class="form-control"
+               required
+               ng-pattern="/^[a-z0-9_\-\.]{2,}@[a-z0-9_\-\.]{2,}\.[a-z]{2,}$/i"
+               />
+        <p class="help-block" ng-messages="form.email.$error" ng-if="form.email.$touched">
+            <span ng-message="required">Email is required</span>
+            <span ng-message="pattern">Email is invalid</span>
+        </p>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{
+        'has-error': form.password.$invalid && (form.password.$dirty || form.password.$touched),
+        'has-success': form.password.$valid && form.password.$touched
+    }">
+        <label for="password" class="required">Password</label>
+        <input type="password" ng-model="user.password" name="password" autofocus="autofocus" class="form-control" required/>
+        <p class="help-block" ng-messages="form.password.$error" ng-if="form.password.$touched">
+            <span ng-message="required">Password is required</span>
+        </p>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{
+        'has-error': form.password_confirmation.$invalid && (form.password_confirmation.$dirty || form.password_confirmation.$touched),
+        'has-success': form.password_confirmation.$valid && form.password_confirmation.$touched
+    }">
+        <label for="password_confirmation" class="required">Password confirmation</label>
+        <input type="password" ng-model="user.password_confirmation" name="password_confirmation" autofocus="autofocus" class="form-control" required/>
+        <p class="help-block" ng-messages="form.password_confirmation.$error" ng-if="form.password_confirmation.$touched">
+            <span ng-message="required">Password is required</span>
+        </p>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{
+        'has-error': form.first_name.$invalid && (form.first_name.$dirty || form.first_name.$touched),
+        'has-success': form.first_name.$valid && form.first_name.$touched
+    }">
+        <label for="first_name" class="required">First Name</label>
+        <input type="text" ng-model="user.first_name" name="first_name" autofocus="autofocus" class="form-control" required/>
+        <p class="help-block" ng-messages="form.first_name.$error" ng-if="form.first_name.$touched">
+            <span ng-message="required">First Name is required</span>
+        </p>
+    </div>
+
+    <div class="form-group has-feedback" ng-class="{
+        'has-error': form.last_name.$invalid && (form.last_name.$dirty || form.last_name.$touched),
+        'has-success': form.last_name.$valid && form.last_name.$touched
+    }">
+        <label for="last_name" class="required">Last Name</label>
+        <input type="text" ng-model="user.last_name" name="last_name" autofocus="autofocus" class="form-control" required/>
+        <p class="help-block" ng-messages="form.last_name.$error" ng-if="form.last_name.$touched">
+            <span ng-message="required">Last Name is required</span>
+        </p>
+    </div>
+
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" name="is_admin" ng-model="user.is_admin" >Admin User?
+        </label>
+    </div><br/>
+
+    <button ng-click="save()" class="btn btn-primary btn-lg" ng-disabled="form.$invalid">
+        {{btn_name}}
+    </button>
+    <a ng-click="cancel()" class="btn btn-lg btn-default">Cancel</a>
+    <a ng-href="#/admin/users/{{user.id}}/delete" class="btn btn-lg btn-danger pull-right">Delete Blog</a>
+
+</form>

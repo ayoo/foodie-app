@@ -22,6 +22,8 @@ work/**/*
 .idea/**/*
 .idea/*
 public/assets
+vendor/**/*
+vendor/*
 .rbenv-version
 *.knob
 .tags

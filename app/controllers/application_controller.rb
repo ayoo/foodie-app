@@ -11,6 +11,11 @@ class ApplicationController < ActionController::Base
 
   rescue_from StandardError do |e|
     logger.error "#{e.class} : #{e.message} "
-    render status: 500, json: { error: "Internal Server Error" }
+    case e
+      when AdminAccessRequiredError
+        render status: 401, json: { error: "Admin access required" }
+      else
+        render status: 500, json: { error: "Internal Server Error" }
+    end
   end
 end

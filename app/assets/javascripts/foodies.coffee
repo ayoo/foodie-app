@@ -65,4 +65,17 @@ app.config [
     .when '/reviews/:id/delete',
       controller: "ReviewsDeleteController"
       templateUrl: "reviews/confirm.html"
+
+    .when '/admin/users',
+      controller: "AdminUsersController"
+      templateUrl: "admin/users/index.html"
+    .when '/admin/users/new',
+      controller: "AdminUsersNewController"
+      templateUrl: "admin/users/form.html"
+    .when '/admin/users/:id/edit',
+      controller: "AdminUsersEditController"
+      templateUrl: "admin/users/form.html",
+    .when '/admin/users/:id/delete',
+      controller: "AdminUsersDeleteController"
+      templateUrl: "admin/users/confirm.html"
 ]

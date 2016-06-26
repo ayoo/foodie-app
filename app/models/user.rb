@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  default_scope { where("deleted_at is null") }
+  scope :admins, -> { where(is_admin: true) }
+
   has_many :blogs
   has_many :reviews
   has_many :recipes

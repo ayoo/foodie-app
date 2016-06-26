@@ -22,7 +22,7 @@ feature "Recipes" do
     fill_in "ingredients", with: Faker::Lorem.sentences(4)
     fill_in "cook_time", with: Faker::Number.between(5,60)
     fill_in "ready_time", with: Faker::Number.between(5,20)
-    click_button "Create"
+    find(".btn-primary").click
     expect(page).to have_content(recipe_title)
   end
 
@@ -40,7 +40,7 @@ feature "Recipes" do
     fill_in "ingredients", with: Faker::Lorem.sentences(4)
     fill_in "cook_time", with: Faker::Number.between(5,60)
     fill_in "ready_time", with: Faker::Number.between(5,20)
-    click_button "Create"
+    find(".btn-primary").click
     expect(page).to have_content("Title is required")
   end
 
@@ -58,7 +58,7 @@ feature "Recipes" do
     fill_in "ingredients", with: Faker::Lorem.sentences(4)
     fill_in "cook_time", with: Faker::Number.between(5,60)
     fill_in "ready_time", with: Faker::Number.between(5,20)
-    click_button "Create"
+    find(".btn-primary").click
     expect(page).to have_content("Content is required")
   end
 
@@ -76,7 +76,7 @@ feature "Recipes" do
     click_link("Edit Recipe")
     updated_recipe_title = Faker::Lorem.sentence
     fill_in "title", with: updated_recipe_title
-    click_button "Update"
+    find(".btn-primary").click
     expect(page).to have_content(updated_recipe_title)
   end
 

@@ -18,7 +18,7 @@ feature "Blogs" do
     fill_in "title", with: blog_title
     fill_in "content", with: Faker::Lorem.paragraph
     fill_in "tags", with: Faker::Lorem.word
-    click_button "Create"
+    find(".btn-primary").click
     expect(page).to have_content(blog_title)
   end
 
@@ -32,7 +32,7 @@ feature "Blogs" do
     fill_in "title", with: nil
     fill_in "content", with: Faker::Lorem.paragraph
     fill_in "tags", with: Faker::Lorem.word
-    click_button "Create"
+    find(".btn-primary").click
     expect(page).to have_content("Title is required")
   end
 
@@ -46,7 +46,7 @@ feature "Blogs" do
     fill_in "title", with: blog_title
     fill_in "content", with: nil
     fill_in "tags", with: Faker::Lorem.word
-    click_button "Create"
+    find(".btn-primary").click
     expect(page).to have_content("Content is required")
   end
 
@@ -64,7 +64,7 @@ feature "Blogs" do
     click_link("Edit Blog")
     updated_blog_title = Faker::Lorem.sentence
     fill_in "title", with: updated_blog_title
-    click_button "Update"
+    find(".btn-primary").click
     expect(page).to have_content(updated_blog_title)
   end
 

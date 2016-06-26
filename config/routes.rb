@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   resources :recipes
   resources :reviews
 
-
+  namespace :admin do
+    resources :users
+  end
 end

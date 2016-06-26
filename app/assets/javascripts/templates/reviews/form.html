@@ -46,9 +46,9 @@
 
 
 
-    <button ng-click="save()" class="btn btn-primary btn-lg">
+    <button ng-click="save()" class="btn btn-primary btn-lg" ng-disabled="form.$invalid">
         {{btn_name}}
     </button>
-    <a ng-click="cancel()" class="btn btn-lg btn-danger">Cancel</a>
+    <a ng-click="cancel()" class="btn btn-lg btn-default">Cancel</a>
 
 </form>

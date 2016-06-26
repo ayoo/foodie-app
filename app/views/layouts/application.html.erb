@@ -24,7 +24,7 @@
 
 </head>
 
-<body ng-app="foodies">
+<body ng-app="foodies" ngCloak>
 
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -55,10 +55,13 @@
             <li>
               <a ng-href="#/reviews">Reviews</a>
             </li>
+            <li ng-if="current_user.is_admin">
+              <a ng-href="#/admin/users">Manage Users</a>
+            </li>
           </ul>
           <ul class="nav navbar-nav pull-right">
             <li>
-              <a href="#"><%=current_user.email%></a>
+              <a href="#"><%=current_user.first_name%> <%=current_user.last_name%> (<%=current_user.email%>)</a>
             </li>
             <li>
               <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
@@ -74,11 +77,6 @@
   <!-- Page Content -->
   <div class="container">
     <div class="row">
-      <% if notice.present? %>
-        <aside class="alert alert-info">
-          <%= notice %>
-        </aside>
-      <% end %>
       <% if alert.present? %>
         <aside class="alert alert-danger">
           <%= alert %>

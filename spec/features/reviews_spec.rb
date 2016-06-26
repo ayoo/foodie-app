@@ -21,7 +21,7 @@ feature "Reviews" do
     fill_in "hours", with: Faker::Lorem.sentence
     fill_in "rating", with: Faker::Number.between(1,5)
     fill_in "tags", with: Faker::Lorem.word
-    click_button "Create"
+    find(".btn-primary").click
     expect(page).to have_content(review_title)
   end
 
@@ -38,7 +38,7 @@ feature "Reviews" do
     fill_in "hours", with: Faker::Lorem.sentence
     fill_in "rating", with: Faker::Number.between(1,5)
     fill_in "tags", with: Faker::Lorem.word
-    click_button "Create"
+    find(".btn-primary").click
     expect(page).to have_content("Title is required")
   end
 
@@ -55,7 +55,7 @@ feature "Reviews" do
     fill_in "hours", with: Faker::Lorem.sentence
     fill_in "rating", with: Faker::Number.between(1,5)
     fill_in "tags", with: Faker::Lorem.word
-    click_button "Create"
+    find(".btn-primary").click
     expect(page).to have_content("Content is required")
   end
 
@@ -73,7 +73,7 @@ feature "Reviews" do
     click_link("Edit Review")
     updated_review_title = Faker::Lorem.sentence
     fill_in "title", with: updated_review_title
-    click_button "Update"
+    find(".btn-primary").click
     expect(page).to have_content(updated_review_title)
   end
 

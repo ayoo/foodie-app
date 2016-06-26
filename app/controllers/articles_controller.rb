@@ -6,9 +6,9 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    article = article_class.find_by(id: params[:id])
+    article = article_class.where(id: params[:id]).includes(:user).first
     if article
-      render json: article
+      render json: article, include: :user
     else
       render status: 404, json: {error: "Article not found"}
     end

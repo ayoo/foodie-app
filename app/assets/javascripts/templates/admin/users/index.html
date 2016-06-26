@@ -1,0 +1,17 @@
+<h1>FoodieApp Users</h1>
+<hr>
+<div class="text-right">
+    <a ng-href="#/admin/users/new" class="btn btn-lg btn-success">New User</a>
+</div>
+
+<div class="media" ng-repeat="user in users">
+    <a class="pull-left" href="#">
+        <img class="media-object" src="http://placehold.it/64x64" alt="">
+    </a>
+    <div class="media-body linkable" ng-click="edit(user.id)">
+        <h4 class="media-heading">{{user.first_name}} {{user.last_name}}
+            <small>created on {{user.created_at | date :  "dd/MM/yyyy h:mm a " }}</small>
+        </h4>
+        {{user.email}} <span ng-if="user.is_admin" class="label label-info">Admin</span>
+    </div>
+</div>
