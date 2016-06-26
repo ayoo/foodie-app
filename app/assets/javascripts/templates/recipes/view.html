@@ -1,7 +1,7 @@
 <h1>{{recipe.title}}</h1>
 
 <p class="lead">
-    by <a href="#">{{current_user.first_name}} {{current_user.last_name}}</a>
+    by <a href="#">{{recipe.user.first_name}} {{recipe.user.last_name}}</a>
 </p>
 <div class="text-right">
     <a ng-href="#/recipes/{{recipe.id}}/edit" class="btn btn-lg btn-success" ng-if="current_user.id === recipe.user_id">Edit Recipe</a>

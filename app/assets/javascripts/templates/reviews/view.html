@@ -1,7 +1,7 @@
 <h1>{{review.title}}</h1>
 
 <p class="lead">
-    by <a href="#">{{current_user.first_name}} {{current_user.last_name}}</a>
+    by <a href="#">{{review.user.first_name}} {{review.user.last_name}}</a>
 </p>
 <div class="text-right">
     <a ng-href="#/reviews/{{review.id}}/edit" class="btn btn-lg btn-success" ng-if="current_user.id === review.user_id">Edit Review</a>
