@@ -5,9 +5,7 @@ angular.module('foodies').controller 'AdminUsersController', [
   'currentUser'
   ($scope, $resource, $location, currentUser) ->
     User = $resource('/admin/users')
-    $scope.users = User.query
-      method: 'GET'
-      page: 1
+    $scope.users = User.query {method: 'GET', page: 1 }
 
     $scope.edit = (id) ->
       $location.path "/admin/users/#{id}/edit"

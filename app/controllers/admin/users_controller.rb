@@ -33,6 +33,7 @@ class Admin::UsersController < ApplicationController
   def update
     user = User.find_by(id: params[:id])
     if user.update_attributes(admin_users_params)
+      sign_in user, :bypass => true if current_user.id == user.id
       render status: 200, json: { message: "User was updated successfully" }
     else
       render status: 422,  json: {error: user.errors.full_messages}

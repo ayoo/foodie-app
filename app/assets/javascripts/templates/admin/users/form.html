@@ -22,9 +22,12 @@
         'has-success': form.password.$valid && form.password.$touched
     }">
         <label for="password" class="required">Password</label>
-        <input type="password" ng-model="user.password" name="password" autofocus="autofocus" class="form-control" required/>
+        <input type="password" ng-model="user.password" name="password" autofocus="autofocus" class="form-control"
+               required
+               ng-minlength="6"/>
         <p class="help-block" ng-messages="form.password.$error" ng-if="form.password.$touched">
             <span ng-message="required">Password is required</span>
+            <span ng-message="minlength">Password should be greater or equal to 6 characters</span>
         </p>
     </div>
 
