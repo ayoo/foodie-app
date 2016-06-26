@@ -1,28 +1,23 @@
-== README
+== FoodieApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is just the sample test application to demonstrate how to integrate with multiple stacks including AngularJS, Rails4 and Postgres
 
-Things you may want to cover:
+The working demo can be found [here](https://foodie-app.herokuapp.com)
 
-* Ruby version
+Things which were covered by this version:
 
-* System dependencies
+* Login / Signup process with Devise
 
-* Configuration
+* A user can manage three articles such as Blog Post, Recipe, Review
 
-* Database creation
+* Activity stream shows the most recent 20 items
 
-* Database initialization
+* The admin user can manage other users (defaultuser is foodieapp@example.com / demo0nly)
 
-* How to run the test suite
+Todo
 
-* Services (job queues, cache servers, search engines, etc.)
+* Show more button in activity stream list to load older ones.
 
-* Deployment instructions
+* ActionCable to use WebSocket. This requires the upgrade to Rails 5 first
 
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* Fix bugs
