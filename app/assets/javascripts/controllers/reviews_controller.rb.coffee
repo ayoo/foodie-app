@@ -21,11 +21,9 @@ angular.module('foodies').controller 'ReviewsViewController', [
   'currentUser'
   ($scope, $routeParams, $resource, $location, currentUser) ->
     Review = $resource "/reviews/#{$routeParams.id}.json"
-    Review.get (result) ->
-      if result.id
-        $scope.review = result
-      else
-        $location.path('/shared/content_not_found')
+    result = Review.get().$promise
+    result.then (result) -> $scope.review = result
+    .catch (err) -> $location.path('/shared/content_not_found')
 
     currentUser.then (user) ->
       $scope.current_user = user

@@ -21,11 +21,9 @@ angular.module('foodies').controller 'BlogsViewController', [
   'currentUser'
   ($scope, $routeParams, $resource, $location, currentUser) ->
     Blog = $resource "/blogs/#{$routeParams.id}.json"
-    Blog.get (result) ->
-      if result.id
-        $scope.blog = result
-      else
-        $location.path('/shared/content_not_found')
+    result = Blog.get().$promise
+    result.then (result) -> $scope.blog = result
+    .catch (err) -> $location.path('/shared/content_not_found')
 
     currentUser.then (user) ->
       $scope.current_user = user

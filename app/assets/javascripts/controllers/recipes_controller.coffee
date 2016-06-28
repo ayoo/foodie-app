@@ -20,11 +20,9 @@ angular.module('foodies').controller 'RecipesViewController', [
   'currentUser'
   ($scope, $routeParams, $resource, $location, currentUser) ->
     Recipe = $resource "/recipes/#{$routeParams.id}.json"
-    Recipe.get (result) ->
-      if result.id
-        $scope.recipe = result
-      else
-        $location.path('/shared/content_not_found')
+    result = Recipe.get().$promise
+    result.then (result) -> $scope.recipe = result
+    .catch (err) -> $location.path('/shared/content_not_found')
 
     currentUser.then (user) ->
       $scope.current_user = user
